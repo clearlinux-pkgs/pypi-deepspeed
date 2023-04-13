@@ -4,13 +4,13 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-deepspeed
-Version  : 0.8.3
-Release  : 4
-URL      : https://files.pythonhosted.org/packages/0f/c0/9b57e9ec56f6f405726a384b109f8da1267e41feea081850c2fce1735712/deepspeed-0.8.3.tar.gz
-Source0  : https://files.pythonhosted.org/packages/0f/c0/9b57e9ec56f6f405726a384b109f8da1267e41feea081850c2fce1735712/deepspeed-0.8.3.tar.gz
+Version  : 0.9.0
+Release  : 5
+URL      : https://files.pythonhosted.org/packages/fb/68/99dd7c647aeb1c7e2af16c7fc23a3ca5891fc6e0b2438f730aeaf6ff06f4/deepspeed-0.9.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/fb/68/99dd7c647aeb1c7e2af16c7fc23a3ca5891fc6e0b2438f730aeaf6ff06f4/deepspeed-0.9.0.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
-License  : MIT
+License  : Apache-2.0 MIT
 Requires: pypi-deepspeed-bin = %{version}-%{release}
 Requires: pypi-deepspeed-license = %{version}-%{release}
 Requires: pypi-deepspeed-python = %{version}-%{release}
@@ -30,7 +30,7 @@ BuildRequires : pypi(tqdm)
 %define debug_package %{nil}
 
 %description
-[![License MIT](https://badgen.net/badge/license/MIT/blue)](https://github.com/Microsoft/DeepSpeed/blob/master/LICENSE)
+[![License Apache 2.0](https://badgen.net/badge/license/apache2.0/blue)](https://github.com/Microsoft/DeepSpeed/blob/master/LICENSE)
 [![PyPI version](https://badge.fury.io/py/deepspeed.svg)](https://pypi.org/project/deepspeed/)
 [![Downloads](https://pepy.tech/badge/deepspeed)](https://pepy.tech/project/deepspeed)
 [![Build](https://badgen.net/badge/build/check-status/blue)](#build-pipeline-status)
@@ -81,10 +81,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.8.3
-cd %{_builddir}/deepspeed-0.8.3
+%setup -q -n deepspeed-0.9.0
+cd %{_builddir}/deepspeed-0.9.0
 pushd ..
-cp -a deepspeed-0.8.3 buildavx2
+cp -a deepspeed-0.9.0 buildavx2
 popd
 
 %build
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679411794
+export SOURCE_DATE_EPOCH=1681404260
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -117,7 +117,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-deepspeed
-cp %{_builddir}/deepspeed-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-deepspeed/689ec0681815ecc32bee639c68e7740add7bd301 || :
+cp %{_builddir}/deepspeed-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-deepspeed/7df059597099bb7dcf25d2a9aedfaf4465f72d8d || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -148,7 +148,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pypi-deepspeed/689ec0681815ecc32bee639c68e7740add7bd301
+/usr/share/package-licenses/pypi-deepspeed/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
 
 %files python
 %defattr(-,root,root,-)
