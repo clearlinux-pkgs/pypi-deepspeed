@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-deepspeed
-Version  : 0.9.1
-Release  : 6
-URL      : https://files.pythonhosted.org/packages/fc/4e/5eb2fd0f363b89e8f58673fb4a9bd04b8273a43e4e7aa3d397ed76b1ca63/deepspeed-0.9.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/fc/4e/5eb2fd0f363b89e8f58673fb4a9bd04b8273a43e4e7aa3d397ed76b1ca63/deepspeed-0.9.1.tar.gz
+Version  : 0.9.2
+Release  : 7
+URL      : https://files.pythonhosted.org/packages/9e/6a/ce4e9afcf36f242f55bf2c91fa1366b26f0f40653d98a96c0f64b7154c12/deepspeed-0.9.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/9e/6a/ce4e9afcf36f242f55bf2c91fa1366b26f0f40653d98a96c0f64b7154c12/deepspeed-0.9.2.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -34,6 +34,7 @@ BuildRequires : pypi(tqdm)
 [![PyPI version](https://badge.fury.io/py/deepspeed.svg)](https://pypi.org/project/deepspeed/)
 [![Downloads](https://pepy.tech/badge/deepspeed)](https://pepy.tech/project/deepspeed)
 [![Build](https://badgen.net/badge/build/check-status/blue)](#build-pipeline-status)
+[![Twitter](https://img.shields.io/twitter/follow/MSFTDeepSpeed)](https://twitter.com/intent/follow?screen_name=MSFTDeepSpeed)
 
 %package bin
 Summary: bin components for the pypi-deepspeed package.
@@ -81,10 +82,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.9.1
-cd %{_builddir}/deepspeed-0.9.1
+%setup -q -n deepspeed-0.9.2
+cd %{_builddir}/deepspeed-0.9.2
 pushd ..
-cp -a deepspeed-0.9.1 buildavx2
+cp -a deepspeed-0.9.2 buildavx2
 popd
 
 %build
@@ -92,15 +93,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682089367
+export SOURCE_DATE_EPOCH=1684608174
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
