@@ -4,13 +4,13 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-deepspeed
-Version  : 0.9.2
-Release  : 7
-URL      : https://files.pythonhosted.org/packages/9e/6a/ce4e9afcf36f242f55bf2c91fa1366b26f0f40653d98a96c0f64b7154c12/deepspeed-0.9.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/9e/6a/ce4e9afcf36f242f55bf2c91fa1366b26f0f40653d98a96c0f64b7154c12/deepspeed-0.9.2.tar.gz
+Version  : 0.9.3
+Release  : 8
+URL      : https://files.pythonhosted.org/packages/9f/64/4a3643f61b15dbfec1cab0172f4bdae1d45e1ab3cd73bb0600978d5e4e5a/deepspeed-0.9.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/9f/64/4a3643f61b15dbfec1cab0172f4bdae1d45e1ab3cd73bb0600978d5e4e5a/deepspeed-0.9.3.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
-License  : Apache-2.0 MIT
+License  : Apache-2.0
 Requires: pypi-deepspeed-bin = %{version}-%{release}
 Requires: pypi-deepspeed-license = %{version}-%{release}
 Requires: pypi-deepspeed-python = %{version}-%{release}
@@ -82,10 +82,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.9.2
-cd %{_builddir}/deepspeed-0.9.2
+%setup -q -n deepspeed-0.9.3
+cd %{_builddir}/deepspeed-0.9.3
 pushd ..
-cp -a deepspeed-0.9.2 buildavx2
+cp -a deepspeed-0.9.3 buildavx2
 popd
 
 %build
@@ -93,7 +93,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684608174
+export SOURCE_DATE_EPOCH=1685978691
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
