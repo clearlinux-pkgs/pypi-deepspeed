@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-deepspeed
-Version  : 0.9.4
-Release  : 9
-URL      : https://files.pythonhosted.org/packages/41/04/14787d6ce94a70fa2a4e6b123d6c1fec7317d8249ac26176932316ff1153/deepspeed-0.9.4.tar.gz
-Source0  : https://files.pythonhosted.org/packages/41/04/14787d6ce94a70fa2a4e6b123d6c1fec7317d8249ac26176932316ff1153/deepspeed-0.9.4.tar.gz
+Version  : 0.9.5
+Release  : 10
+URL      : https://files.pythonhosted.org/packages/99/0f/a4ebd3b3f6a8fd9bca77ca5f570724f3902ca90b491f8146e45c9733e64f/deepspeed-0.9.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/99/0f/a4ebd3b3f6a8fd9bca77ca5f570724f3902ca90b491f8146e45c9733e64f/deepspeed-0.9.5.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -35,6 +35,8 @@ BuildRequires : pypi(tqdm)
 [![Downloads](https://pepy.tech/badge/deepspeed)](https://pepy.tech/project/deepspeed)
 [![Build](https://badgen.net/badge/build/check-status/blue)](#build-pipeline-status)
 [![Twitter](https://img.shields.io/twitter/follow/MSFTDeepSpeed)](https://twitter.com/intent/follow?screen_name=MSFTDeepSpeed)
+[![Japanese Twitter](https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9ETwitter-%40MSFTDeepSpeedJP-blue)](https://twitter.com/MSFTDeepSpeedJP)
+[![Chinese Zhihu](https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-%E5%BE%AE%E8%BD%AFDeepSpeed-blue)](https://www.zhihu.com/people/deepspeed)
 
 %package bin
 Summary: bin components for the pypi-deepspeed package.
@@ -82,10 +84,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.9.4
-cd %{_builddir}/deepspeed-0.9.4
+%setup -q -n deepspeed-0.9.5
+cd %{_builddir}/deepspeed-0.9.5
 pushd ..
-cp -a deepspeed-0.9.4 buildavx2
+cp -a deepspeed-0.9.5 buildavx2
 popd
 
 %build
@@ -93,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686352305
+export SOURCE_DATE_EPOCH=1687532184
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
