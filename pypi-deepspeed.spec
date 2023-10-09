@@ -4,15 +4,14 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-deepspeed
-Version  : 0.11.0
-Release  : 15
-URL      : https://files.pythonhosted.org/packages/06/54/7c7c3a8e6272f5abad04a3fe94a85530dcdc1bc91a1b63c11c04c0451ab8/deepspeed-0.11.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/06/54/7c7c3a8e6272f5abad04a3fe94a85530dcdc1bc91a1b63c11c04c0451ab8/deepspeed-0.11.0.tar.gz
+Version  : 0.11.1
+Release  : 16
+URL      : https://files.pythonhosted.org/packages/73/11/14f424b21eddaf2c339e0c149ec0a11159ab5eb7340303d311ddb47e9689/deepspeed-0.11.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/73/11/14f424b21eddaf2c339e0c149ec0a11159ab5eb7340303d311ddb47e9689/deepspeed-0.11.1.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: pypi-deepspeed-bin = %{version}-%{release}
-Requires: pypi-deepspeed-license = %{version}-%{release}
 Requires: pypi-deepspeed-python = %{version}-%{release}
 Requires: pypi-deepspeed-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -41,18 +40,9 @@ BuildRequires : pypi(tqdm)
 %package bin
 Summary: bin components for the pypi-deepspeed package.
 Group: Binaries
-Requires: pypi-deepspeed-license = %{version}-%{release}
 
 %description bin
 bin components for the pypi-deepspeed package.
-
-
-%package license
-Summary: license components for the pypi-deepspeed package.
-Group: Default
-
-%description license
-license components for the pypi-deepspeed package.
 
 
 %package python
@@ -68,6 +58,7 @@ python components for the pypi-deepspeed package.
 Summary: python3 components for the pypi-deepspeed package.
 Group: Default
 Requires: python3-core
+Provides: pypi(deepspeed)
 Requires: pypi(hjson)
 Requires: pypi(ninja)
 Requires: pypi(numpy)
@@ -83,10 +74,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.11.0
-cd %{_builddir}/deepspeed-0.11.0
+%setup -q -n deepspeed-0.11.1
+cd %{_builddir}/deepspeed-0.11.1
 pushd ..
-cp -a deepspeed-0.11.0 buildavx2
+cp -a deepspeed-0.11.1 buildavx2
 popd
 
 %build
@@ -94,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1696863581
+export SOURCE_DATE_EPOCH=1696894255
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -138,8 +129,6 @@ ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/pypi-deepspeed
-cp %{_builddir}/deepspeed-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-deepspeed/7df059597099bb7dcf25d2a9aedfaf4465f72d8d || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -167,10 +156,6 @@ popd
 /usr/bin/ds_report
 /usr/bin/ds_ssh
 /usr/bin/dsr
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/pypi-deepspeed/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
 
 %files python
 %defattr(-,root,root,-)
