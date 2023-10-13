@@ -5,7 +5,7 @@
 #
 Name     : pypi-deepspeed
 Version  : 0.11.1
-Release  : 16
+Release  : 17
 URL      : https://files.pythonhosted.org/packages/73/11/14f424b21eddaf2c339e0c149ec0a11159ab5eb7340303d311ddb47e9689/deepspeed-0.11.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/73/11/14f424b21eddaf2c339e0c149ec0a11159ab5eb7340303d311ddb47e9689/deepspeed-0.11.1.tar.gz
 Summary  : DeepSpeed library
