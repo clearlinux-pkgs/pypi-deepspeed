@@ -7,7 +7,7 @@
 #
 Name     : pypi-deepspeed
 Version  : 0.12.4
-Release  : 19
+Release  : 20
 URL      : https://files.pythonhosted.org/packages/b8/a2/201f57d766b23af6b66769d7dc633816ca766f79ba37e0e4a325eca763b0/deepspeed-0.12.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b8/a2/201f57d766b23af6b66769d7dc633816ca766f79ba37e0e4a325eca763b0/deepspeed-0.12.4.tar.gz
 Summary  : DeepSpeed library
@@ -88,7 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1701898252
+export SOURCE_DATE_EPOCH=1702066996
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
