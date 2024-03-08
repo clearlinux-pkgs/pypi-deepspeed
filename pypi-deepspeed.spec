@@ -6,10 +6,10 @@
 # autospec commit: 1ab68ca
 #
 Name     : pypi-deepspeed
-Version  : 0.13.5
-Release  : 29
-URL      : https://files.pythonhosted.org/packages/ac/05/0c396c283577ed5c21890b24fdbaff81637fe4abc8c4667ed8adda06bb43/deepspeed-0.13.5.tar.gz
-Source0  : https://files.pythonhosted.org/packages/ac/05/0c396c283577ed5c21890b24fdbaff81637fe4abc8c4667ed8adda06bb43/deepspeed-0.13.5.tar.gz
+Version  : 0.14.0
+Release  : 30
+URL      : https://files.pythonhosted.org/packages/c4/d2/8ef74ea43580db602b845a499340ee21da98fb1e749d86ab9ee16bc32bd2/deepspeed-0.14.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/c4/d2/8ef74ea43580db602b845a499340ee21da98fb1e749d86ab9ee16bc32bd2/deepspeed-0.14.0.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -48,6 +48,17 @@ Group: Binaries
 bin components for the pypi-deepspeed package.
 
 
+%package dev
+Summary: dev components for the pypi-deepspeed package.
+Group: Development
+Requires: pypi-deepspeed-bin = %{version}-%{release}
+Provides: pypi-deepspeed-devel = %{version}-%{release}
+Requires: pypi-deepspeed = %{version}-%{release}
+
+%description dev
+dev components for the pypi-deepspeed package.
+
+
 %package python
 Summary: python components for the pypi-deepspeed package.
 Group: Default
@@ -78,10 +89,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.13.5
-cd %{_builddir}/deepspeed-0.13.5
+%setup -q -n deepspeed-0.14.0
+cd %{_builddir}/deepspeed-0.14.0
 pushd ..
-cp -a deepspeed-0.13.5 buildavx2
+cp -a deepspeed-0.14.0 buildavx2
 popd
 
 %build
@@ -89,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1709739356
+export SOURCE_DATE_EPOCH=1709913396
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -160,6 +171,11 @@ popd
 /usr/bin/ds_report
 /usr/bin/ds_ssh
 /usr/bin/dsr
+
+%files dev
+%defattr(-,root,root,-)
+/usr/lib/python3.12/site-packages/deepspeed/inference/v2/kernels/core_ops/cuda_linear/include/configs.h
+/usr/lib/python3.12/site-packages/deepspeed/inference/v2/kernels/core_ops/cuda_linear/include/weight_prepacking.h
 
 %files python
 %defattr(-,root,root,-)
