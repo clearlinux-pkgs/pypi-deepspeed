@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-deepspeed
-Version  : 0.14.5
-Release  : 35
-URL      : https://files.pythonhosted.org/packages/85/b1/4f2e80eb76058122ba4a405feff1bf07af084ab5cf282aeecd19b0a3c46a/deepspeed-0.14.5.tar.gz
-Source0  : https://files.pythonhosted.org/packages/85/b1/4f2e80eb76058122ba4a405feff1bf07af084ab5cf282aeecd19b0a3c46a/deepspeed-0.14.5.tar.gz
+Version  : 0.15.0
+Release  : 36
+URL      : https://files.pythonhosted.org/packages/13/14/5cde975724b07a70ef6cf58cf15efe8505c7c4dbf0a3d9e6ef36adc48775/deepspeed-0.15.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/13/14/5cde975724b07a70ef6cf58cf15efe8505c7c4dbf0a3d9e6ef36adc48775/deepspeed-0.15.0.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -21,7 +21,6 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pypi(hjson)
 BuildRequires : pypi(ninja)
 BuildRequires : pypi(numpy)
-BuildRequires : pypi(nvidia_ml_py)
 BuildRequires : pypi(packaging)
 BuildRequires : pypi(psutil)
 BuildRequires : pypi(py_cpuinfo)
@@ -86,7 +85,6 @@ Provides: pypi(deepspeed)
 Requires: pypi(hjson)
 Requires: pypi(ninja)
 Requires: pypi(numpy)
-Requires: pypi(nvidia_ml_py)
 Requires: pypi(packaging)
 Requires: pypi(psutil)
 Requires: pypi(py_cpuinfo)
@@ -99,10 +97,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.14.5
-cd %{_builddir}/deepspeed-0.14.5
+%setup -q -n deepspeed-0.15.0
+cd %{_builddir}/deepspeed-0.15.0
 pushd ..
-cp -a deepspeed-0.14.5 buildavx2
+cp -a deepspeed-0.15.0 buildavx2
 popd
 
 %build
@@ -110,7 +108,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1723766329
+export SOURCE_DATE_EPOCH=1724378478
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

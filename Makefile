@@ -1,5 +1,5 @@
 PKG_NAME := pypi-deepspeed
-URL = https://files.pythonhosted.org/packages/85/b1/4f2e80eb76058122ba4a405feff1bf07af084ab5cf282aeecd19b0a3c46a/deepspeed-0.14.5.tar.gz
+URL = https://files.pythonhosted.org/packages/13/14/5cde975724b07a70ef6cf58cf15efe8505c7c4dbf0a3d9e6ef36adc48775/deepspeed-0.15.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
