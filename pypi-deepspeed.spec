@@ -6,10 +6,10 @@
 # autospec commit: 5424026
 #
 Name     : pypi-deepspeed
-Version  : 0.16.0
-Release  : 43
-URL      : https://files.pythonhosted.org/packages/eb/b0/d0fe1ecb4ca9a6b4be66a1b472d514eda0fdbb407481d51a0fcd2f38e733/deepspeed-0.16.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/eb/b0/d0fe1ecb4ca9a6b4be66a1b472d514eda0fdbb407481d51a0fcd2f38e733/deepspeed-0.16.0.tar.gz
+Version  : 0.16.2
+Release  : 44
+URL      : https://files.pythonhosted.org/packages/d6/79/49cdf7d168b9ddcefeec6fda7a094a98bb48b046d56c7f4b2e092124534f/deepspeed-0.16.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/d6/79/49cdf7d168b9ddcefeec6fda7a094a98bb48b046d56c7f4b2e092124534f/deepspeed-0.16.2.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -18,6 +18,7 @@ Requires: pypi-deepspeed-license = %{version}-%{release}
 Requires: pypi-deepspeed-python = %{version}-%{release}
 Requires: pypi-deepspeed-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(einops)
 BuildRequires : pypi(hjson)
 BuildRequires : pypi(msgpack)
 BuildRequires : pypi(ninja)
@@ -84,6 +85,7 @@ Summary: python3 components for the pypi-deepspeed package.
 Group: Default
 Requires: python3-core
 Provides: pypi(deepspeed)
+Requires: pypi(einops)
 Requires: pypi(hjson)
 Requires: pypi(msgpack)
 Requires: pypi(ninja)
@@ -100,10 +102,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.16.0
-cd %{_builddir}/deepspeed-0.16.0
+%setup -q -n deepspeed-0.16.2
+cd %{_builddir}/deepspeed-0.16.2
 pushd ..
-cp -a deepspeed-0.16.0 buildavx2
+cp -a deepspeed-0.16.2 buildavx2
 popd
 
 %build
@@ -111,7 +113,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1732636199
+export SOURCE_DATE_EPOCH=1734589927
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
