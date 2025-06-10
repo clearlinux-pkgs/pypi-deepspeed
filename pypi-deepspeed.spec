@@ -6,10 +6,10 @@
 # autospec commit: 65cf152
 #
 Name     : pypi-deepspeed
-Version  : 0.17.0
-Release  : 53
-URL      : https://files.pythonhosted.org/packages/1e/35/eef570f4da4a39d0e7f2e72757295fdba3718a8eca60d8d6dcfeb9e6f26d/deepspeed-0.17.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/1e/35/eef570f4da4a39d0e7f2e72757295fdba3718a8eca60d8d6dcfeb9e6f26d/deepspeed-0.17.0.tar.gz
+Version  : 0.17.1
+Release  : 54
+URL      : https://files.pythonhosted.org/packages/38/10/a7f63e086c1e1c12e290c98363c748ef5ddd6313fde739d2aeccd5ed0cd4/deepspeed-0.17.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/38/10/a7f63e086c1e1c12e290c98363c748ef5ddd6313fde739d2aeccd5ed0cd4/deepspeed-0.17.1.tar.gz
 Summary  : DeepSpeed library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -102,10 +102,10 @@ python3 components for the pypi-deepspeed package.
 
 
 %prep
-%setup -q -n deepspeed-0.17.0
-cd %{_builddir}/deepspeed-0.17.0
+%setup -q -n deepspeed-0.17.1
+cd %{_builddir}/deepspeed-0.17.1
 pushd ..
-cp -a deepspeed-0.17.0 buildavx2
+cp -a deepspeed-0.17.1 buildavx2
 popd
 
 %build
@@ -113,7 +113,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1748960100
+export SOURCE_DATE_EPOCH=1749568284
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
